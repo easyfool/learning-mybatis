@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangfeng.mapper.CountryMapper">
+  <resultMap id="countryMap" type="com.wangfeng.model.Country">
+    <id property="id" column="id"/>
+    <result property="countryName" column="countryName"/>
+    <result property="countryCode" column="countryCode"/>
+  </resultMap>
+  <select id="selectById" parameterType="Integer" resultType="com.wangfeng.model.Country">
+    select *from country where id=#{id}
+  </select>
+  <select id="selectAll" resultMap="countryMap">
+      select * from country
+  </select>
+
+</mapper>
